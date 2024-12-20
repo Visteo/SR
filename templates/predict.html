@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Search Actor</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        margin: 0;
+        padding: 20px;
+        color: #333;
+      }
+
+      h1 {
+        text-align: center;
+        color: #444;
+      }
+
+      table {
+        width: 80%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+      }
+
+      table th,
+      table td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+      }
+
+      table th {
+        background-color: #4caf50;
+        color: white;
+        text-transform: uppercase;
+      }
+
+      table tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      table tr:hover {
+        background-color: #f1f1f1;
+      }
+
+      p {
+        text-align: center;
+        font-size: 18px;
+        color: #666;
+      }
+
+      input[type="text"],
+      input[type="submit"] {
+        display: block;
+        margin: 10px auto;
+        padding: 10px;
+        width: 300px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Film yang Dibintangi {{ actor }}</h1>
+
+    {% if movies %}
+    <table border="1">
+      <tr>
+        <th>Judul</th>
+        <th>Tahun</th>
+        <th>Genre</th>
+        <th>Rating Rata-Rata</th>
+      </tr>
+      {% for movie in movies %}
+      <tr>
+        <td>{{ movie.title }}</td>
+        <td>{{ movie.year }}</td>
+        <td>{{ movie.genre }}</td>
+        <td>{{ movie.avg_vote }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>{{ message }}</p>
+    {% endif %}
+    <a href="/" class="btn btn-primary mt-3">Back to Home</a>
+  </body>
+</html>

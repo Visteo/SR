@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmTV Movie Recommender</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">FilmTV Movie Recommender</h1>
+        <form action="/recommend" method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="genre">Select Genre:</label>
+                <select name="genre" id="genre" class="form-control">
+                    <option value="0">Action</option>
+                    <option value="1">Adventure</option>
+                    <option value="2">Animation</option>
+                    <option value="3">Biblical</option>
+                    <option value="4">Biography</option>
+                    <option value="5">Comedy</option>
+                    <option value="6">Crime</option>
+                    <option value="7">Documentary</option>
+                    <option value="8">Drama</option>
+                    <option value="9">Erotico</option>
+                    <option value="10">Fantasy</option>
+                    <option value="11">Gangster</option>
+
+
+                    <!-- Tambahkan genre lainnya sesuai data -->
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Get Recommendations</button>
+        </form>
+
+        <hr>
+
+        <form action="/predict" method="POST" class="mt-4">
+            <div class="form-group">
+                <label for="description">Enter Actors:</label>
+                <textarea name="description" id="description" rows="4" class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn btn-success btn-block">Predict Film by Actors</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recommendations</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+      h1 {
+        color: #444;
+        margin-bottom: 20px;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        background-color: #fff;
+      }
+
+      table thead th {
+        background-color: #4caf50;
+        color: white;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 10px;
+      }
+
+      table tbody td {
+        text-align: center;
+        padding: 12px;
+      }
+
+      table tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      table tbody tr:hover {
+        background-color: #f1f1f1;
+      }
+
+      .btn-primary {
+        background-color: #4caf50;
+        border-color: #4caf50;
+        font-weight: bold;
+        transition: background-color 0.3s, transform 0.2s;
+      }
+
+      .btn-primary:hover {
+        background-color: #45a049;
+        transform: scale(1.05);
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 50px auto;
+        background-color: #fff;
+        padding: 20px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="text-center">Recommendations for {{ genre }}</h1>
+      <table class="table table-striped mt-4">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Average Vote</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for movie in recommendations %}
+          <tr>
+            <td>{{ movie['title'] }}</td>
+            <td>{{ movie['year'] }}</td>
+            <td>{{ movie['avg_vote'] }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        <a href="/" class="btn btn-primary mt-3">Back to Home</a>
+      </table>
+    </div>
+  </body>
+</html>
